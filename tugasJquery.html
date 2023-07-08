@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOAL PELATIHAN JQUERY</title>
+    <style>
+        /* class info */
+        .info{
+            background-color: red;
+        }
+
+        .dropdown{
+            display: inline-block;
+            position: relative;
+        }
+
+        .dropdownBtn{
+            padding: 5px;
+            background-color: antiquewhite;
+            color: black;
+        }
+
+        .dropdown-menu{
+            display: none;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .dropdown-menu ul{
+            list-style: none;
+        }
+        
+        .dropdown-menu ul li{
+            padding: 5px;
+            background-color: beige;
+            min-width: 100px;
+        }
+        .dropdown-menu ul li:hover{
+            background-color: bisque;
+        }
+
+        .dropdown:hover .dropdown-menu{
+            display: block;
+        }
+
+        .kotak{
+            height: 100px;
+            width: 100px;
+            border-color: black;
+            border: 2px;
+            background-color: black;
+            margin-bottom: 15px;
+        }
+
+        .item{
+            padding: 5px;
+            display: inline-block;
+        }
+
+        .highlight {
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- soal 1  -->
+    <h1>SOAL 1</h1>
+    <div class="main info">
+        <h1>Hello World</h1>
+    </div>
+
+    <br>
+    <hr>
+    <br>
+
+    <!-- soal 2 -->
+    <h1>SOAL 2</h1>
+    <button id="btn-click" onclick="clickBtn()">
+        KLIK UNTUK UBAH TEKS
+    </button>
+
+    <br>
+    <hr>
+    <br>
+
+    <!-- soal 3 -->
+    <h1>SOAL 3</h1>
+    <div class="kotak"></div>
+    <div class="dropdown">
+        <button class="dropdownBtn">
+            Pilih Warna untuk kotak
+        </button>
+        <div class="dropdown-menu">
+            <ul>
+                <li id="merah">merah</li>
+                <li id="hijau">hijau</li>
+                <li id="kuning">kuning</li>
+                <li id="biru">biru</li>
+            </ul>
+        </div>
+    </div>
+
+    <br>
+
+    <br>
+    <hr>
+    <br>
+
+    <!-- soal 4 -->
+    <h1>SOAL 4</h1>
+    <div class="item">item 1</div>
+    <div class="item">item 2</div>
+    <div class="item">item 3</div>
+
+    <br>
+    <hr>
+    <br>
+
+    <!-- soal 5 -->
+    <H1>SOAL 5</H1>
+    <input type="text" id="search-input" placeholder="input pencarian!!">
+    <button id="search-button">cari</button>
+    <div id="result"></div>
+    
+    <br>
+    <hr>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.js" integrity="sha256-7GO+jepT9gJe9LB4XFf8snVOjX3iYNb0FHYr5LI1N5c=" crossorigin="anonymous"></script>
+    <script>
+
+        // hide class info
+        $(document).ready(function(){
+            $('.info').hide();
+        })
+
+        // ganti text
+        function clickBtn(){
+            $('#btn-click').html('Clicked!!')
+        }
+
+        // ubah warna
+        $('#merah').click(function(){
+            $('.kotak').css('background-color','red');
+        })
+        
+        $('#hijau').click(function(){
+            $('.kotak').css('background-color','green');
+        })
+        
+        $('#kuning').click(function(){
+            $('.kotak').css('background-color','yellow');
+        })
+        
+        $('#biru').click(function(){
+            $('.kotak').css('background-color','blue');
+        })
+
+        //add hightlight class ke class item 
+        $('.item').hover(function(){
+            $('.item').addClass('highlight')
+        },function(){
+            $('.item').removeClass('highlight')
+        });
+
+        //dapatkan nilai input
+        $('#search-button').click(function(){
+            $('#result').html($('#search-input').val())
+        })
+        
+    </script>
+</body>
+</html>
